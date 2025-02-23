@@ -1,72 +1,60 @@
-# Fall-Sense AI (Human Fall Detection System)
+# Fall-Sense AI : Detection System using YOLO & Twilio
 
 ## Overview
-This project uses *YOLO* (You Only Look Once) for *fall detection* in real-time. The model identifies whether a person is *standing* or *falling* based on bounding box aspect ratios. It can be used *locally via webcam* or *in Colab using video files*.
-
----
-
-## Problem Statement
-Falls are a major health risk, especially for elderly individuals and people with disabilities. A fall can result in severe injuries, and the lack of immediate assistance can lead to critical conditions. Traditional fall detection methods rely on wearable devices, which may not always be worn or functional. This project aims to develop a computer vision-based Fall Detection System that uses YOLO, OpenCV, and AI-driven analysis to detect falls and send real-time notifications via WhatsApp, ensuring timely assistance and reducing health risks.
-
----
+This project implements a *Fall Detection System* using *YOLO* object detection and *Twilio* messaging to alert a predefined contact in case of a detected fall. The system captures live video, detects human falls, and sends WhatsApp messages for the first five fall detections with real-time location.
 
 ## Features
-- *Real-time fall detection* using OpenCV & YOLO.
-- *Webcam support* for live detection.
-- *Google Colab compatibility* for analyzing pre-recorded videos.
-- *Alerts based on fall probability* (bounding box aspect ratio).
-
----
+- *Real-time Fall Detection* using YOLO
+- *KMeans Clustering* for better fall classification
+- *Twilio WhatsApp Messaging* for alerts
+- *Geolocation Tracking* to provide location in messages
+- *Live Webcam Feed* with bounding boxes & labels
 
 ## Installation
-### Local Setup
-1. Install dependencies:
-   bash
-   pip install opencv-python numpy ultralytics torch torchvision
-   
-2. Clone the repository and place the **YOLO model (model.pt)** inside the project folder.
-3. Run the script:
-   bash
-   python fall_detection.py
-   
+### Prerequisites
+Ensure you have Python installed (3.7 or later recommended). Install required dependencies using:
 
-### Google Colab Setup
-1. Install dependencies in Colab:
+sh
+pip install opencv-python numpy ultralytics scikit-learn geocoder twilio
+
+
+### Twilio Setup
+1. Create an account on [Twilio](https://www.twilio.com/)
+2. Get your *Account SID, **Auth Token, and a **Twilio WhatsApp Number*
+3. Replace the following in fall_detection.py:
    python
-   !pip install opencv-python numpy ultralytics mediapipe torch torchvision
+   account_sid = 'your_account_sid'
+   auth_token = 'your_auth_token'
+   from_wa_number = 'whatsapp:+14155238886'  # Twilio sandbox number
+   to_wa_number = 'whatsapp:+your_number'  # Your WhatsApp number
    
-2. Load video files from Google Drive.
-3. Run the Colab notebook.
-
----
 
 ## Usage
-### Running Locally (Webcam)
-- The script captures frames from the webcam and applies *YOLO-based tracking*.
-- If a fall is detected (width/height > 0.7), an *alert message* is displayed.
-- Press q to exit the live feed.
+Run the script to start detecting falls:
 
-### Running in Google Colab
-- Uses *pre-recorded videos* for fall detection.
-- Displays processed frames using cv2_imshow().
-- Useful for *evaluating different scenarios* without a live feed.
-
----
-
-## File Structure
-
-/The Project_Folder
-
-│── fall_detection.py  # Main script for webcam-based detection
-
-│── colab_fall_detection.ipynb  # Google Colab version
-
-│── model.pt  # YOLO model weights
+sh
+python fall_detection.py
 
 
----
+## How It Works
+1. *Captures live video* from the webcam.
+2. *Detects people* using YOLO.
+3. *Analyzes posture* using KMeans clustering.
+4. *Detects falls* based on aspect ratio and position.
+5. *Sends a WhatsApp alert* for the first five falls.
 
-## Future Improvements
-- *Enhance accuracy* by fine-tuning the model.
-- *Add sound or notification alerts* when a fall is detected.
-- *Deploy as a mobile/IoT solution* for real-world applications.
+## Stopping the Program
+Press q to exit the live feed.
+
+## Limitations
+- Needs a *GPU* for real-time processing.
+- *Lighting conditions* may affect detection accuracy.
+- Requires *internet connectivity* for Twilio messaging.
+
+## Future Enhancements
+- Implement *SMS & Call alerts* for emergencies.
+- Use *Deep Learning models* for better fall classification.
+- Integrate with *IoT sensors* for enhanced accuracy.
+
+## Contact
+For questions or contributions, feel free to reach out!
