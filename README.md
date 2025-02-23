@@ -1,22 +1,82 @@
 # Fall-Sense AI : Fall Detection System using YOLO & Twilio
 
 ## Overview
-This project implements a *Fall Detection System* using *YOLO* object detection and *Twilio* messaging to alert a predefined contact in case of a detected fall. The system captures live video, detects human falls, and sends WhatsApp messages for the first five fall detections with real-time location.
+The GenVO Diversion project aims to implement and test a fall detection system using YOLO-based object detection, GPS tracking, and alert mechanisms via Twilio. The system captures real-time video, detects human figures, classifies their posture, and logs location and time-based data to trigger emergency alerts when necessary.
 
 ## Features
-- *Real-time Fall Detection* using YOLO
-- *KMeans Clustering* for better fall classification
-- *Twilio WhatsApp Messaging* for alerts
-- *Geolocation Tracking* to provide location in messages
-- *Live Webcam Feed* with bounding boxes & labels
 
-## Installation
+- **Real-time Fall Detection**: Uses YOLO for object detection and KMeans clustering for posture classification.
+- **GPS Tracking**: Retrieves live location data upon each detection.
+- **Emergency Alert System**: Sends alerts via Twilio when a fall is detected.
+- **DeepSeek R1 API** : Integrated for additional AI-based insights
+- **Logging Mechanism**: Stores detections with timestamps and location coordinates.
+- **Testing & Evaluation**: Includes a separate testing framework for validation purposes
+
+## File Structure
+
+- `app.py` - Practical implementation for real-world application.
+- `GenVO_Diversion_Final.ipynb` - Testing notebook for evaluation and debugging.
+- `moldel.pt` - A YOLO trained model for object detection.
+- `README.md` - Documentation and setup instructions.
+
+## Setup Instructions
+
 ### Prerequisites
-Ensure you have Python installed (3.7 or later recommended). Install required dependencies using:
 
-sh
-pip install opencv-python numpy ultralytics scikit-learn geocoder twilio
+Ensure you have the following installed:
 
+- Python 3.8+
+- OpenCV
+- NumPy
+- YOLO (Ultralytics)
+- Scikit-learn
+- Geocoder
+- Twilio Python SDK
+- openai
+
+### Usage
+
+# Practical Implementation
+
+- Run the script to start real-time object detection.
+- If a fall is detected, an alert is sent via Twilio along with GPS coordinates.
+- Logs are stored with timestamps for analysis.
+
+# Testing Framework
+
+- This version helps in fine-tuning the model by analyzing detection accuracy.
+- DeepSeek R1 API is utilized for further insights and classification improvements, providing insights to possibles reasons of the trips and falls.
+- Runs without alert triggers, focusing on debugging and parameter adjustments.
+
+### Installation
+
+1. Clone the repository:
+   ```sh
+   git clone <repo_url>
+   cd GenVO_Diversion
+   ```
+2. Install dependencies:
+   ```sh
+   pip install -r requirements.txt
+   ```
+3. Set up Twilio credentials in `app.py`.
+4. Run the script:
+   ```sh
+   python app.py
+   ```
+
+### API Integration
+
+## DeepSeek API
+
+- DeepSeek API is used to enhance object recognition accuracy by refining bounding box classification and improving fall detection.
+- Endpoint: https://api.deepseek.com/ai-model
+- Usage: The API is queried for additional object classification and confidence scoring.
+
+## Twilio API
+
+- Sends WhatsApp or SMS alerts when a fall is detected.
+- Requires a valid Twilio account SID and authentication token.
 
 ### Twilio Setup
 1. Create an account on [Twilio](https://www.twilio.com/)
