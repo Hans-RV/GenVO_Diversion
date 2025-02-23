@@ -16,7 +16,7 @@ The GenVO Diversion project aims to implement and test a fall detection system u
 
 - `app.py` - Practical implementation for real-world application.
 - `GenVO_Diversion_Final.ipynb` - Testing notebook for evaluation and debugging.
-- `moldel.pt` - A YOLO trained model for object detection.
+- `model.pt` - A YOLO trained model for object detection.
 - `README.md` - Documentation and setup instructions.
 
 ## Setup Instructions
