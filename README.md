@@ -1,4 +1,4 @@
-# Fall Detection System
+# Fall-Sense AI (Human Fall Detection System)
 
 ## Overview
 This project uses *YOLO* (You Only Look Once) for *fall detection* in real-time. The model identifies whether a person is *standing* or *falling* based on bounding box aspect ratios. It can be used *locally via webcam* or *in Colab using video files*.
