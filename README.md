@@ -34,6 +34,8 @@ Ensure you have the following installed:
 - Twilio Python SDK
 - openai
 
+--
+
 ### Usage
 
 # Practical Implementation
