@@ -5,6 +5,11 @@ This project uses *YOLO* (You Only Look Once) for *fall detection* in real-time.
 
 ---
 
+## Problem Statement
+Falls are a major health risk, especially for elderly individuals and people with disabilities. A fall can result in severe injuries, and the lack of immediate assistance can lead to critical conditions. Traditional fall detection methods rely on wearable devices, which may not always be worn or functional. This project aims to develop a computer vision-based Fall Detection System that uses YOLO, OpenCV, and AI-driven analysis to detect falls and send real-time notifications via WhatsApp, ensuring timely assistance and reducing health risks.
+
+---
+
 ## Features
 - *Real-time fall detection* using OpenCV & YOLO.
 - *Webcam support* for live detection.
