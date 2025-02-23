@@ -50,7 +50,7 @@ This project uses *YOLO* (You Only Look Once) for *fall detection* in real-time.
 
 ## File Structure
 
-/your_project_folder
+/The Project_Folder
 
 │── fall_detection.py  # Main script for webcam-based detection
 
