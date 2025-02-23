@@ -1,4 +1,4 @@
-# Fall-Sense AI : Detection System using YOLO & Twilio
+# Fall-Sense AI : Fall Detection System using YOLO & Twilio
 
 ## Overview
 This project implements a *Fall Detection System* using *YOLO* object detection and *Twilio* messaging to alert a predefined contact in case of a detected fall. The system captures live video, detects human falls, and sends WhatsApp messages for the first five fall detections with real-time location.
