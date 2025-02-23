@@ -51,8 +51,11 @@ This project uses *YOLO* (You Only Look Once) for *fall detection* in real-time.
 ## File Structure
 
 /your_project_folder
+
 │── fall_detection.py  # Main script for webcam-based detection
+
 │── colab_fall_detection.ipynb  # Google Colab version
+
 │── model.pt  # YOLO model weights
 
 
